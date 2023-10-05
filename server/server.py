@@ -40,7 +40,7 @@ def thread_client(client_socket):
 
 def main():
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    server_address = ('my-python-server', 54632)
+    server_address = ('0.0.0.0', 54632)
     server_socket.bind(server_address)
     server_socket.listen(5)
     print("Server is listening...")

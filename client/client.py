@@ -1,6 +1,7 @@
 import socket
+import time
 
-server_address = ('172.19.0.2', 54632)
+server_address = ('172.17.0.1', 54632)
 
 client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 client_socket.connect(server_address)
