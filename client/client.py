@@ -1,5 +1,4 @@
 import socket
-import time
 
 server_address = ('172.17.0.1', 54632)
 

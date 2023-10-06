@@ -38,19 +38,15 @@ def thread_client(client_socket):
     finally:
         client_socket.close()
 
-def main():
-    server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    server_address = ('0.0.0.0', 54632)
-    server_socket.bind(server_address)
-    server_socket.listen(5)
-    print("Server is listening...")
+server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+server_address = ('0.0.0.0', 54632)
+server_socket.bind(server_address)
+server_socket.listen(5)
+print("Server is listening...")
 
-    while True:
-        client_socket, client_address = server_socket.accept()
-        print(f"{client_address} connected.")
+while True:
+    client_socket, client_address = server_socket.accept()
+    print(f"{client_address} connected.")
 
-        client_handler = threading.Thread(target=thread_client, args=(client_socket,))
-        client_handler.start()
-
-if __name__ == "__main__":
-    main()
+    client_handler = threading.Thread(target=thread_client, args=(client_socket,))
+    client_handler.start()
