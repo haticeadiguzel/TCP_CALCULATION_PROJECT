@@ -16,13 +16,17 @@ def thread_client(client_socket):
                 num1, num2 = int(num1), int(num2)
                 if operator == '+':
                     result = num1 + num2
+                    print(f"{num1} + {num2} = {result}")
                 elif operator == '-':
                     result = num1 - num2
+                    print(f"{num1} - {num2} = {result}")
                 elif operator == '*':
                     result = num1 * num2
+                    print(f"{num1} * {num2} = {result}")
                 elif operator == '/':
                     if num2 != 0:
                         result = num1 / num2
+                        print(f"{num1} / {num2} = {result}")
                     else:
                         client_socket.send("Zero division error".encode())
                         continue
@@ -50,3 +54,4 @@ while True:
 
     client_handler = threading.Thread(target=thread_client, args=(client_socket,))
     client_handler.start()
+    
